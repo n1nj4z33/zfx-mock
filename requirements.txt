@@ -1,0 +1,1 @@
+pytest_hoverfly==5.0.4

@@ -1,0 +1,25 @@
+{
+    "data": {
+        "pairs": [
+            {
+                "response": {
+                    "status": 200,
+                    "body": "{{ randomUuid }}",
+                    "templated": true
+                },
+                "request": {
+                    "path": [
+                        {
+                            "matcher": "glob",
+                            "value": "/services/*"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "meta": {
+        "schemaVersion": "v5",
+        "hoverflyVersion": "v1.5.2"
+    }
+}
