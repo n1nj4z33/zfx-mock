@@ -1,0 +1,18 @@
+---
+services:
+
+  hoverfly:
+    container_name: hoverfly
+    image: hoverfly:latest
+    ports:
+      - "8888:8888"
+      - "8500:8500"
+    networks:
+      - hoverfly
+
+networks:
+  hoverfly:
+    name: hoverfly
+
+volumes:
+  hoverfly_data:
