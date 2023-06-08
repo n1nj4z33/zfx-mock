@@ -2,32 +2,65 @@
     "data": {
         "pairs": [
             {
-                "response": {
-                    "templated": true,
-                    "status": 200,
-                    "body": "{{ faker 'Name' }}"
-                },
                 "request": {
                     "path": [
                         {
                             "matcher": "glob",
                             "value": "/users/*"
                         }
+                    ],
+                    "method": [
+                        {
+                            "matcher": "exact",
+                            "value": "GET"
+                        }
                     ]
+                },
+                "response": {
+                    "templated": true,
+                    "status": 200,
+                    "body": "{{ faker 'Name' }}"
                 }
             },
             {
-                "response": {
-                    "status": 200,
-                    "body": "user 123"
-                },
                 "request": {
                     "path": [
                         {
                             "matcher": "exact",
                             "value": "/users/123"
                         }
+                    ],
+                    "method": [
+                        {
+                            "matcher": "exact",
+                            "value": "GET"
+                        }
                     ]
+                },
+                "response": {
+                    "status": 200,
+                    "body": "user 123"
+                }
+            },
+            {
+                "request": {
+                    "path": [
+                        {
+                            "matcher": "exact",
+                            "value": "/user/create"
+                        }
+                    ],
+                    "method": [
+                        {
+                            "matcher": "exact",
+                            "value": "POST"
+                        }
+                    ]
+                },
+                "response": {
+                    "templated": true,
+                    "status": 200,
+                    "body": "user {{ Request.Body 'jsonpath' '$.user' }} created"
                 }
             }
         ]
